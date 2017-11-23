@@ -7,14 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.GestureDetector;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main3Activity extends AppCompatActivity {
 
     GestureDetectorCompat gestureObj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main3);
         gestureObj = new GestureDetectorCompat(this, new LearnGesture());
     }
 
@@ -23,20 +23,19 @@ public class Main2Activity extends AppCompatActivity {
         return super.onTouchEvent(event);
     }
 
+    // page management
     class LearnGesture extends GestureDetector.SimpleOnGestureListener {
         // Page management
         public boolean onFling(MotionEvent eventOne, MotionEvent eventTwo, float xSpeed, float ySpeed) {
             // page backward
             if (eventTwo.getX() > eventOne.getX()) {
-                Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+                Intent intent = new Intent(Main3Activity.this, Main2Activity.class);
                 finish();
                 startActivity(intent);
 
             } else {
                 if (eventTwo.getX() < eventOne.getX()) {
-                    Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
-                    finish();
-                    startActivity(intent);
+
                 }
             }
             return true;
